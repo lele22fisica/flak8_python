@@ -1,21 +1,11 @@
-class FilaNormal:
-    # Código é um atributo
-    codigo: int = 0
-    fila = []
-    clientes_atendidos = []
-    senha_tual: str = ""
+from flia_base import FilaBase
+class FilaNormal(FilaBase):
 
     def gera_senha_atual(self) -> None:  # Esta seta com a palavra 'None' indica que este método não retorna nada.
         self.senhatual = f'NM{self.codigo}'  # Ele pega o atributo senhatual e simplsmente iguala o atributo a um sufixo mais um código.
 
-    def reseta_filha(self) -> None:
-        if self.codigo >= 100:
-            self.codigo = 0
-        else:
-            self.codigo += 1
-
     def atuaiza_fila(self) -> None:
-        self.reseta_filha()
+        self.reseta_fila()
         self.gera_senha_atual()
         self.fila.append(self.senhatual)
         # caixa é um argumento
